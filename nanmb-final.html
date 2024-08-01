@@ -231,8 +231,11 @@
 }
 
 .button-group {
-    display:contents;
-    gap: 10px; /* Jarak antar tombol */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px;
 }
 
 .buy-now-button, .whatsapp-button {

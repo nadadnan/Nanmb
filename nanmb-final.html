@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NANMB LEGACY</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 99;
+            box-shadow: 0 0 10px #000;
+            background-color: #000000;
+        }
+        #chk1 {
+            display: none;
+        }
+        i {
+            color: #fff;
+            cursor: pointer;
+        }
+        header .logo {
+            flex: 1;
+            color: #fff;
+            margin-left: 50px;
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+        header ul {
+            flex: 2;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        header ul li {
+            list-style: none;
+        }
+        header ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 15px;
+        }
+        header ul li a:hover {
+            border-bottom: 2px solid cadetblue;
+        }
+        header .menu {
+            font-size: 2.5em;
+            display: none;
+        }
+        @media(max-width: 1000px) {
+            header ul {
+                position: fixed;
+                top: 100px;
+                right: -100%;
+                background-color: #000;
+                height: calc(100vh - 100px);
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+                transition: right 0.5s linear;
+            }
+            header .menu {
+                display: block;
+                width: 100px;
+                text-align: center;
+            }
+            #chk1:checked ~ ul {
+                right: 0;
+            }
+        }
+        #home {
+            width: 100%;
+            height: 90vh;
+            background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(mb1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 15%;
+        }
+        .content {
+            padding-top: 210px;
+            margin-left: 56px;
+        }
+        .content h3 {
+            font-size: 45px;
+            color: #edebeb;
+        }
+        .content h2 {
+            font-size: 60px;
+            color: #fff;
+        }
+        .content p {
+            margin-top: 10px;
+            color: #fff;
+        }
+        #btn {
+            width: 150px;
+            height: 36px;
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            transition: 0.5s ease;
+            cursor: pointer;
+        }
+        #btn:hover {
+            background: #b2744c;
+            color: #fff;
+        }
+        /* Product Section */
+        #produk {
+            width: 100%;
+            height: auto;
+            background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(bg3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;            
+        }
+        .product-section {
+            padding: 40px 20px;
+            background-color: #f8f8f8;
+        }
+        .product-section h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            color: #ffffff;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+        @media(min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .card h1 {
+            font-size: 24px;
+            color: #333;
+            margin: 15px 0;
+        }
+        .card .price {
+            color: red;
+            font-size: 20px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .card p {
+            font-size: 16px;
+            color: #000000;
+        }
+        .card button {
+            border: none;
+            outline: none;
+            padding: 12px;
+            color: #fff;
+            background-color: #ff7700;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .card button:hover {
+            background-color: #0056b3;
+        }
+        .card .more-description {
+    display: none;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.card .read-more {
+    display: block;
+    margin-top: 10px;
+    color: #ff7700;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.card .read-more.active {
+    color: #0056b3;
+}
+
+.button-group {
+    display:contents;
+    gap: 10px; /* Jarak antar tombol */
+}
+
+.buy-now-button, .whatsapp-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.buy-now-button {
+    background-color: #FF5722; /* Warna tombol Shopee */
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* Warna tombol Whatsapp */
+}
+
+.gallery-section .column{
+    float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.gallery-section .row::after {
+    content: "";
+  clear: both;
+  display: table;
+}
+
+.gallery-section h1{
+    font-size: 44px;
+    text-align: center;
+    color: #000000;
+    margin: 15px 0; 
+}
+
+
+
+/*----------------------- Galley Page -----------------------*/
+.img-gallery{
+  width:90%;
+  margin: 10px auto 50px ;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;  
+}
+    
+.img-gallery img{
+  width: 100%;
+  cursor: pointer;
+}
+
+.img-gallery img:hover{
+  transform: scale(1.0) rotate(-3deg);
+  border-radius: 20px;
+  box-shadow: 0 32px 75px rgba(68,77,136,0.2);
+}
+
+/* Style for the main image */
+.main-image {
+    grid-column: span 2; /* Span across two columns */
+    grid-row: span 2; /* Span across two rows */
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the image covers the space */
+    box-shadow: 0 32px 75px rgba(68, 77, 136, 0.4); /* Enhance the shadow */
+}
+
+/* Additional responsiveness */
+@media (max-width: 768px) {
+    .main-image {
+        grid-column: span 1; /* Make the image span only one column on smaller screens */
+        grid-row: span 1; /* Make the image span only one row on smaller screens */
+    }
+}
+
+.vid-gallery video{
+  width: 150%;
+  cursor: pointer;
+}
+
+.vid-gallery {
+  width: 80%;
+  margin: 50px auto; 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;  
+  text-align: center;
+  }
+
+.vid-gallery video {
+  width: 95%;
+  height: auto;
+}
+
+/*----------------------- Galley Page End -----------------------*/
+
+/* footer */
+.footer-section {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Gaya untuk Store Locations Section */
+#feedback{
+width: 100%;
+            height: auto;
+            background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(bg3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: auto;
+            font-family: 'Roboto', sans-serif;
+            
+}
+.store-locations {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+}
+
+.store-locations h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.locations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.location {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.location h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.location p {
+    font-size: 16px;
+    color: #666;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.map-link:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="chk1">
+        <a href="#"><img src="logo-nanmb.png" alt="Logo" style="height: 100px; margin: 12px;"></a>
+        <div class="logo"></div>
+        <ul>
+            <li><a href="#home">Halaman Utama</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li>
+                <a href="https://m.facebook.com/NANMB77?mibextid=LQQJ4d" target="_blank"><i class="fa fa-facebook"></i></a>                
+                <a href="https://wa.me/60105525354" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                <a href="https://my.shp.ee/go1Fk8x" target="_blank"><img src="shopee.png" alt="Shopee Logo" style="height: 22px;"></a>
+                <a href="https://www.tiktok.com/@nanmb_legacy?_t=8oV9K7czpH6&_r=1" target="_blank"><img src="tt2.png" alt="Tiktok Logo" style="height: 30px;"></a>
+            </li>
+        </ul>
+        <div class="menu">
+            <label for="chk1">
+                <i class="fa fa-bars"></i>
+            </label>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="content">
+            <h2>NANMB LEGACY</h2>
+            <h3>The King Of Fighter</h3>
+            <p style="font-size: larger;">Pembiakbakaan burung murai batu berlesen dan <br>Pembekal produk kesihatan burung.</p>
+            <a href="#about-us">
+                <button id="btn">Ketahui lebih lagi</button>
+            </a>
+        </div>
+    </section>
+    <!-- Home Section End -->
+
+    <!-- About Us Section -->
+<section id="about-us" style="padding: 40px 20px; background-color: #f8f8f8; color: #333;">
+    <h1 style="text-align: center; font-size: 36px; margin-bottom: 20px;">Tentang Kami</h1>
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 18px; line-height: 1.6;">
+            Ditubuhkan pada tahun 2019, NANMB LEGACY adalah peneraju dalam pembiakbakaan burung murai batu secara komersial. 
+            Kami mempunyai <strong>Pembiakbakaan Dalam Kurungan Komersial</strong> dan <strong>Lesen Peniaga</strong> serta <strong>Panel Penandaan yang sah </strong> dari <strong>PERHILITAN</strong> membolehkan kami menjalankan aktiviti pembiakbakaan dan menjual burung murai batu beserta lesen dan membuat penandaan pelbagai jenis burung. 
+            Selain daripada penjualan burung, kami juga menawarkan pelbagai produk berkaitan burung, termasuk dedak, vitamin, dan suplemen khas. 
+            Dengan pengalaman dan kepakaran dalam industri ini, kami berkomitmen untuk menyediakan produk dan perkhidmatan yang memenuhi standard tertinggi dan memastikan setiap pelanggan berpuas hati dengan pengalaman mereka bersama kami. 
+            Di NANMB LEGACY, kami sentiasa berusaha untuk menjadikan penjagaan burung anda lebih mudah dan berkesan.
+        </p>
+    </div>
+</section>
+<!-- About Us Section End -->
+
+    <!-- Product Section -->
+    <section id="produk" class="product-section">
+        <h1>Produk Kami</h1>
+        <div class="grid-container">
+
+            <div class="card">
+                <img src="dedak3.jpg" alt="Dedak NanMb">
+                <h1>Dedak NanMb</h1>
+                <p class="price">RM18.00</p>
+                <p class="short-description">Sesuai untuk semua jenis burung kicau.</p>
+                <div class="more-description">
+                    <p>Kandungan paling lengkap dan terbaik. Membuatkan stamina burung terjaga dan menjadikan bulu burung cantik sihat bersinar.</p>
+                </div>
+                <a href="#" class="read-more">Baca lebih lanjut</a>
+                <br>
+                <div class="button-group">
+                    <a href="https://my.shp.ee/2xZzWWK" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="vithijau.jpg" alt="vut hijau NanMb">
+                <h1>Vitamin Fighter NanMb</h1>
+                <p class="price">RM18.00</p>
+                <p class="short-description">Sesuai untuk kegunaan harian bagi merawat suara burung.</p>
+                <div class="more-description">
+                    <p style="text-align: left;">Cara Penggunaan: <br> 
+                    <ul>
+                        <li style="text-align: left;">Masukan 5 hingga 8 titis dicampurkan kedalam bekas minuman burung</li>
+                        <li style="text-align: left;">Selepas setiap  3 hari sekali air perlu ditukar</li>
+                      </ul>  
+                    </p>
+                </div>
+                <a href="#" class="read-more">Baca lebih lanjut</a>
+                <br>
+                <div class="button-group">
+                    <a href="https://my.shp.ee/x8hTFGc" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="vitbon2.jpg" alt="Vitamin Bon NanMb">
+                <h1>Vitamin Bon NanMb</h1>
+                <p class="price">RM25.00</p>
+                <p class="short-description">Khas untuk pertandigan atau pikat.</p>
+                <div class="more-description">
+                    <p style="text-align: left;">Cara Penggunaan: <br> 
+                    <ul>
+                        <li style="text-align: left;">Masukan 3 hingga 5 titis kedalam setengah bekas minuman burung</li>
+                            <li style="text-align: left;">Selepas 2 hari digunakan air perlu ditukar</li>
+                      </ul>  
+                    </p>
+                </div>
+                <a href="#" class="read-more">Baca lebih lanjut</a>
+                <br>
+                <div class="button-group">
+                    <a href="https://my.shp.ee/dvV6b8e" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="bcomplex.jpg" alt="Vitamin B-Complex NanMb">
+                <h1>Vitamin B-Complex NanMb</h1>
+                <p class="price">RM20.00</p>
+                <p class="short-description">Menguatkan antibodi burung. Sesuai untuk pembiakan supaya benih, telur dan anak menjadi kuat dan sihat selepas menetas.</p>
+                <div class="more-description">
+                    <p style="text-align: left;">Cara Penggunaan: <br> 
+                    <ul>
+                        <li style="text-align: left;">Masukan 2-5 titik terus kedalam mulut burung yang mengalami masalah terkena stroke haba,sawan atau tidak sihat</li>
+                        <li style="text-align: left;">Masukan 5 titik ke dalam 50ml bekas minuman burung untuk kegunaaan harian</li>
+                        <li style="text-align: left;">Suntik terus ke dalam cengkerik atau ulat</li>
+                        <li style="text-align: left;">Masukan 3-5 titis bersama bancuhan dedak(untuk anak suap)bagi menambah selera makan menghindar dari penyakit</li>
+                      </ul>  
+                    </p>
+                </div>
+                <a href="#" class="read-more">Baca lebih lanjut</a>
+                <br>
+                <div class="button-group">
+                    <a href="https://my.shp.ee/mCXXJ98" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="superbest.jpg" alt="Vitamin B-Complex NanMb">
+                <h1>Super Best 2in1 NanMb</h1>
+                <p class="price">RM28.00</p>
+                <p class="short-description">2IN1- MANDIAN & MINUMAN. <br> Untuk luka dalaman dan luaran serta dapat memulihkan keguguran bulu.</p>
+                <div class="more-description">
+                    <p style="text-align: left;">Cara Penggunaan: <br> 
+                    <ul>
+                        <li style="text-align: left;">Masukkan 20ml kedalam bekas spray 1 liter</li>
+                        <li style="text-align: left;">Semburkan pada haiwan untuk luaran</li>
+                      </ul>  
+                    </p>
+                </div>
+                <a href="#" class="read-more">Baca lebih lanjut</a>
+                <br>
+                <div class="button-group">
+                    <a href="https://my.shp.ee/z8NX1wJ" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="kalsium2.jpg" alt="Vitamin B-Complex NanMb">
+                <h1>Super High Kalsium NanMb</h1>
+                <p class="price">RM15.00</p>
+                <p class="short-description">Serbuk tulang sotong tanpa campuran untuk semua jenis burung</p>
+                <div class="more-description">
+                    <p style="text-align: left;">Kebaikan Tulang Sotong: <br> 
+                    <ul>
+                        <li style="text-align: left;">Memperkuatkan tulang dan sendi</li>
+                            <li style="text-align: left;">Mencegah penyakit tulang@lumpuh</li>
+                            <li style="text-align: left;">Meningkatkan pembentukan telur yg berkualiti</li>
+                      </ul>  
+                    </p>
+                </div>
+                <a href="#" class="read-more">Baca lebih lanjut</a>
+                <br>
+                <div class="button-group">
+                    <a href="https://my.shp.ee/SKYzxF6" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Product Section End -->
+
+
+    <!-- Galley Section -->
+    <section id="galeri" class="gallery-section" style="background-color: #ffffff;" >
+        <h1>Galeri</h1>
+
+        <div class="img-gallery">
+            <img src="mb2.png" class="main-image">
+            <img src="mb5.png">
+            <img src="mb6.png">
+            <img src="mb7.png">
+            <img src="mb8.png">
+            <img src="mb1.jpg">
+            <img src="mb3.jpg">
+
+ 
+        </div>
+
+        <div class="vid-gallery">
+            <video width="40%" height="60%" controls>
+                <source src="vid1.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="40%" height="60%" controls>
+                <source src="vid2.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>  
+            <video width="40%" height="60%" controls>
+                <source src="vid3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="40%" height="60%" controls>
+                <source src="vid4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </section>
+    <!-- Galley Section End-->
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="store-locations" >
+        <h1>Feedback Pelanggan</h1>
+        <div class="locations-container">
+    
+            <div class="location">
+                <img src="feed9.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+            <div class="location">
+                <img src="feed2.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+            <div class="location">
+                <img src="feed10.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+            <div class="location">
+                <img src="feed11.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+            <div class="location">
+                <img src="feed5.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+            <div class="location">
+                <img src="feed6.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+            <div class="location">
+                <img src="feed7.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+            <div class="location">
+                <img src="feed8.jpg" style="width: auto; height: 500px;">
+            </div>
+    
+        </div>
+    </section>
+    <!-- Feedback Section End -->
+
+    <!-- Footer Section (optional) -->
+    <section class="footer-section">
+        &copy2024 NANMB LEGACY | nadadnan
+    </section>
+    <!-- Footer Section End -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreLinks = document.querySelectorAll('.read-more');
+            
+            readMoreLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const card = this.closest('.card');
+                    const moreDescription = card.querySelector('.more-description');
+                    const isExpanded = moreDescription.style.display === 'block';
+        
+                    moreDescription.style.display = isExpanded ? 'none' : 'block';
+                    this.textContent = isExpanded ? 'Baca lebih lanjut' : 'Baca lebih sedikit';
+                    this.classList.toggle('active');
+                });
+            });
+        });
+
+        </script>
+        
+</body>
+</html>

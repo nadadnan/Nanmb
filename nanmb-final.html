@@ -50,8 +50,9 @@
             text-transform: uppercase;
             font-size: 15px;
         }
+        
         header ul {
-            flex: 2;
+            flex: 1;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
@@ -73,6 +74,16 @@
             font-size: 2.5em;
             display: none;
         }
+        
+        /* Added margin for space between social media icons */
+        header a {
+            margin-right: 20px; /* Add space between the social media icons */
+        }
+
+        header a:last-child {
+            margin-right: 0; /* Remove margin on the last icon */
+        }
+
         @media(max-width: 1000px) {
             header ul {
                 position: fixed;
@@ -94,14 +105,16 @@
                 right: 0;
             }
         }
+
         #home {
             width: 100%;
-            height: 140vh;
+            height: 110vh;
             background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(mb7.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             font-family: 'Roboto', sans-serif;
+
         }
         .content {
             padding-top: 110px;
@@ -134,6 +147,7 @@
             background: #b2744c;
             color: #fff;
         }
+
         /* Product Section */
         #produk {
             width: 100%;
@@ -231,27 +245,39 @@
 
 .button-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Space between buttons */
+    flex-direction: column; /* Stack the buttons vertically */
+    gap: 10px; /* Space between the buttons */
     margin-top: 10px;
 }
 
-.buy-now-button, .whatsapp-button {
+.button-group .row {
+    display: flex;
+    justify-content: space-between; /* Ensure space between Shopee and Tiktok buttons */
+    gap: 10px;
+}
+
+.buy-now-button, .buy-tt-button, .whatsapp-button {
     text-decoration: none;
     padding: 10px 20px;
     color: white;
     border-radius: 5px;
     font-weight: bold;
+    width: 100%; /* Ensure the buttons take full width within their container */
 }
 
 .buy-now-button {
     background-color: #FF5722; /* Warna tombol Shopee */
 }
 
+.buy-tt-button {
+    background-color: #000000; /* Warna tombol tt */
+}
+
 .whatsapp-button {
     background-color: #25D366; /* Warna tombol Whatsapp */
 }
+
+
 
 .gallery-section .column{
     float: left;
@@ -409,17 +435,14 @@ width: 100%;
         <input type="checkbox" id="chk1">
         <a href="#"><img src="logo-nanmb.png" alt="Logo" style="height: 100px; margin: 12px;"></a>
         <div class="logo"></div>
+        <a href="https://m.facebook.com/NANMB77?mibextid=LQQJ4d" style="color: white;"><i class="fa fa-facebook-f" style="font-size:24px"></i></a>
+        <a href="https://wa.me/60105525354" style="color: white;"><i class="fa fa-whatsapp" style="font-size:24px"></i></a>
+        <a href="https://my.shp.ee/go1Fk8x" target="_blank"><img src="shopee.png" alt="Shopee Logo" style="height: 27px;"></a>
+        <a href="https://www.tiktok.com/@nanmb_legacy?_t=8oV9K7czpH6&_r=1" target="_blank"><img src="ttlogo.png" alt="Tiktok Logo" style="height: 27px;"></a>
         <ul>
-            <li><a href="#home">Halaman Utama</a></li>
             <li><a href="#produk">Produk</a></li>
             <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#feedback">Feedback</a></li>
-            <li>
-                <a href="https://m.facebook.com/NANMB77?mibextid=LQQJ4d" target="_blank"><i class="fa fa-facebook"></i></a>                
-                <a href="https://wa.me/60105525354" target="_blank"><i class="fa fa-whatsapp"></i></a>
-                <a href="https://my.shp.ee/go1Fk8x" target="_blank"><img src="shopee.png" alt="Shopee Logo" style="height: 22px;"></a>
-                <a href="https://www.tiktok.com/@nanmb_legacy?_t=8oV9K7czpH6&_r=1" target="_blank"><img src="tt2.png" alt="Tiktok Logo" style="height: 30px;"></a>
-            </li>
+            <li><a href="#feedback">Feedback</a></li> <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>            
         </ul>
         <div class="menu">
             <label for="chk1">
@@ -433,7 +456,7 @@ width: 100%;
         <div class="content">
             <h2>NANMB LEGACY</h2>
             <h3>The King Of Fighter</h3>
-            <p style="font-size: 12px;">Pembiakbakaan burung murai batu berlesen dan <br>Pembekal produk kesihatan burung.</p>
+            <p style="font: size 12px;">Pembiakbakaan burung murai batu berlesen dan <br>Pembekal produk kesihatan burung.</p>
             <a href="#about-us">
                 <button id="btn">Ketahui lebih lagi</button>
             </a>
@@ -449,7 +472,7 @@ width: 100%;
             Ditubuhkan pada tahun 2019, NANMB LEGACY adalah peneraju dalam pembiakbakaan burung murai batu secara komersial. 
             Kami mempunyai <strong>Pembiakbakaan Dalam Kurungan Komersial</strong> dan <strong>Lesen Peniaga</strong> serta <strong>Panel Penandaan yang sah </strong> dari <strong>PERHILITAN</strong> membolehkan kami menjalankan aktiviti pembiakbakaan dan menjual burung murai batu beserta lesen dan membuat penandaan pelbagai jenis burung. 
             Selain daripada penjualan burung, kami juga menawarkan pelbagai produk berkaitan burung, termasuk dedak, vitamin, dan suplemen khas. 
-            Dengan pengalaman dan kepakaran selama 14 tahun dalam pertandingan seni suara dan gaya murai batu serta banyak menjuarai pertandingan, kami berkomitmen untuk menyediakan produk dan perkhidmatan yang memenuhi standard tertinggi dan memastikan setiap pelanggan berpuas hati dengan pengalaman mereka bersama kami. 
+            Dengan pengalaman dan kepakaran dalam industri ini, kami berkomitmen untuk menyediakan produk dan perkhidmatan yang memenuhi standard tertinggi dan memastikan setiap pelanggan berpuas hati dengan pengalaman mereka bersama kami. 
             Di NANMB LEGACY, kami sentiasa berusaha untuk menjadikan penjagaan burung anda lebih mudah dan berkesan.
         </p>
     </div>
@@ -472,13 +495,16 @@ width: 100%;
                 <a href="#" class="read-more">Baca lebih lanjut</a>
                 <br>
                 <div class="button-group">
-                    <a href="https://my.shp.ee/2xZzWWK" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <div class="row">
+                        <a href="https://my.shp.ee/g3t61Lj" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                        <a href="https://vt.tiktok.com/ZSjXt6fgy/" class="buy-tt-button" target="_blank">Beli di Tiktok</a>
+                    </div>
                     <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
                 </div>
             </div>
             
             <div class="card">
-                <img src="vithijau.jpg" alt="vut hijau NanMb">
+                <img src="vithijau.jpg" alt="vit hijau NanMb">
                 <h1>Vitamin Fighter NanMb</h1>
                 <p class="price">RM18.00</p>
                 <p class="short-description">Sesuai untuk kegunaan harian bagi merawat suara burung.</p>
@@ -493,9 +519,13 @@ width: 100%;
                 <a href="#" class="read-more">Baca lebih lanjut</a>
                 <br>
                 <div class="button-group">
-                    <a href="https://my.shp.ee/x8hTFGc" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <div class="row">
+                        <a href="https://my.shp.ee/HKJGNmG" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                        <a href="https://vt.tiktok.com/ZSjXtyk1w/" class="buy-tt-button" target="_blank">Beli di Tiktok</a>
+                    </div>
                     <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
                 </div>
+                
             </div>
 
             <div class="card">
@@ -514,7 +544,10 @@ width: 100%;
                 <a href="#" class="read-more">Baca lebih lanjut</a>
                 <br>
                 <div class="button-group">
-                    <a href="https://my.shp.ee/dvV6b8e" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <div class="row">
+                        <a href="https://my.shp.ee/gM8hbAZ" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                        <a href="https://vt.tiktok.com/ZSjXtPUYr/" class="buy-tt-button" target="_blank">Beli di Tiktok</a>
+                    </div>
                     <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
                 </div>
             </div>
@@ -537,7 +570,10 @@ width: 100%;
                 <a href="#" class="read-more">Baca lebih lanjut</a>
                 <br>
                 <div class="button-group">
-                    <a href="https://my.shp.ee/mCXXJ98" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <div class="row">
+                        <a href="https://my.shp.ee/smQ9c8c" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                        <a href="https://vt.tiktok.com/ZSjXtNAxW/" class="buy-tt-button" target="_blank">Beli di Tiktok</a>
+                    </div>
                     <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
                 </div>
             </div>
@@ -558,7 +594,10 @@ width: 100%;
                 <a href="#" class="read-more">Baca lebih lanjut</a>
                 <br>
                 <div class="button-group">
-                    <a href="https://my.shp.ee/z8NX1wJ" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <div class="row">
+                        <a href="https://my.shp.ee/cKknaWG" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                        <a href="https://vt.tiktok.com/ZSjXtfduX/" class="buy-tt-button" target="_blank">Beli di Tiktok</a>
+                    </div>
                     <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
                 </div>
             </div>
@@ -580,7 +619,10 @@ width: 100%;
                 <a href="#" class="read-more">Baca lebih lanjut</a>
                 <br>
                 <div class="button-group">
-                    <a href="https://my.shp.ee/SKYzxF6" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                    <div class="row">
+                        <a href="https://my.shp.ee/HvYeqpf" class="buy-now-button" target="_blank">Beli di Shopee</a>
+                        <a href="https://vt.tiktok.com/ZSjXtUf1F/" class="buy-tt-button" target="_blank">Beli di Tiktok</a>
+                    </div>
                     <a href="https://wa.me/60105525354" class="whatsapp-button" target="_blank">Whatsapp</a>
                 </div>
             </div>

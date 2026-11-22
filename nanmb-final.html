@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             const readMoreLinks = document.querySelectorAll('.read-more');
@@ -32,15 +33,19 @@
             }
             body {
                 font-family: Arial, sans-serif;
-                background-color: #000;
+                background-color: #fff;
                 margin: 0;
-                background-size: cover;
-                background-position: center;
                 overflow-x: hidden;
                 display: flex;
                 flex-direction: column;
                 min-height: 100vh;
                 padding-top: 80px;
+            }
+
+            .page-container {
+                width: calc(100% - 40px);
+                max-width: 1100px;
+                margin: 0 auto;
             }
 
             .navbar {
@@ -57,6 +62,9 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                width: 100%;
+                max-width: 1100px;
+                margin: 0 auto;
             }
 
             .nav-logo img {
@@ -82,15 +90,6 @@
                 border-bottom: 2px solid #fff;
             }
 
-            .nav-social a {
-                color: #fff;
-                margin-left: 12px;
-            }
-
-            .nav-social img {
-                height: 35px;
-                filter: brightness(1);
-            }
 
             .nav-toggle {
                 display: none;
@@ -101,6 +100,41 @@
                 font-size: 28px;
                 color: white;
                 cursor: pointer;
+            }
+
+            .nav-social {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+            }
+
+            .nav-social a {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                transition: transform 0.3s ease;
+            }
+
+            .nav-social a:hover {
+                transform: scale(1.2);
+            }
+
+            .nav-social i {
+                font-size: 30px;
+            }
+
+            .whatsapp-icon {
+                color: #25D366;
+            }
+
+            .tiktok-icon {
+                color: #ffffff;
+            }
+
+            .nav-social img {
+                width: 28px;
+                height: 28px;
+                object-fit: contain;
             }
 
             /* ---------- Responsive Mode ---------- */
@@ -134,19 +168,23 @@
             }
     
            #home {
-                min-height: 100vh;
-                padding-top: 10vh;
+                width: 100%;
+                padding: 16px 0 24px;
                 display: flex;
-                align-items: flex-start;
-                background: 
-                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)),
-                url(mb1.jpg) top center / cover no-repeat;
+                justify-content: center;
+                align-items: center;
+                background: #fff;
             }
 
-            .content {
-                padding-top: 250px;
-                margin-left: 30px;
+            .home-banner {
+                display: block;
+                width: 100%;
+                height: auto;
+                max-height: none;
+                object-fit: contain;
+                border-radius: 14px;
             }
+
             .content h3 {
                 font-size: 30px;
                 color: #edebeb;
@@ -176,6 +214,19 @@
             }
 
             @media(max-width: 600px) {
+                .page-container {
+                    width: calc(100% - 24px);
+                }
+
+                #home {
+                    padding: 12px 0 18px;
+                }
+
+                .home-banner {
+                    max-height: none;
+                    border-radius: 10px;
+                }
+
                 .content h2 {
                     font-size: 32px;
                 }
@@ -476,6 +527,7 @@
                 text-decoration: underline;
             }
         </style>
+            <link rel="preload" as="image" href="nanmb-banner.jpg">
     </head>
     <body>
         <header class="navbar">
@@ -485,22 +537,32 @@
         </a>
 
         <div class="nav-social desktop-only">
-            <!-- <a href="https://m.facebook.com/NANMB77?mibextid=LQQJ4d"><i class="fa fa-facebook-f"></i></a> -->
-            <a href="https://wa.me/60105525354" target="_blank"><img style="height: 33px;" src="whatsapp-removebg.png" alt="WhatsApp"></a>
-            <a href="https://my.shp.ee/uF9RJXkM" target="_blank"><img src="shopee.png" alt="Shopee"></a>
-            <a href="https://vt.tiktok.com/ZSuaxD1dd/?page=TikTokShop" target="_blank"><img src="ttlogo.png" alt="Tiktok"></a>
-        </div>
+
+    <a href="https://wa.me/60105525354"
+       target="_blank" aria-label="WhatsApp">
+        <i class="bi bi-whatsapp whatsapp-icon"></i>
+    </a>
+
+    <a href="https://my.shp.ee/ikdjz7Jc"
+       target="_blank" aria-label="Shopee">
+        <img src="https://cdn.simpleicons.org/shopee/EE4D2D" 
+             alt="Shopee">
+    </a>
+
+    <a href="https://vt.tiktok.com/ZSsdCtB2C/?page=TikTokShop"
+       target="_blank" aria-label="TikTok">
+        <i class="bi bi-tiktok tiktok-icon"></i>
+    </a>
+
+</div>
     </div>
 </header>
 
 
-        <!-- Home Section -->
+        <main class="page-container">
+        <!-- Home Section / Banner -->
         <section id="home">
-            <div class="content">
-                <h1 style="color: white; font-size: 40px;">NANMB LEGACY</h1>
-                <h2>The King Of Fighter</h2>
-                <p style="font: size 30px;">Pembiakbakaan burung murai batu berlesen dan Pembekal produk kesihatan burung.</p>
-            </div>
+            <img src="cover1.jpeg" alt="NANMB LEGACY Website Banner" class="home-banner">
         </section>
         <!-- Home Section End -->
 
@@ -509,11 +571,9 @@
             <h1 style="text-align: center; font-size: 36px; margin-bottom: 20px;">Tentang Kami</h1>
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <p style="font-size: 18px; line-height: 1.6;">
-                    Ditubuhkan pada tahun 2019, NANMB LEGACY adalah peneraju dalam pembiakbakaan burung murai batu secara komersial. 
-                    Kami mempunyai <strong>Pembiakbakaan Dalam Kurungan Komersial</strong> dan <strong>Lesen Peniaga</strong> serta <strong>Panel Penandaan yang sah </strong> dari <strong>PERHILITAN</strong> membolehkan kami menjalankan aktiviti pembiakbakaan dan menjual burung murai batu beserta lesen dan membuat penandaan pelbagai jenis burung. 
-                    Selain daripada penjualan burung, kami juga menawarkan pelbagai produk berkaitan burung, termasuk dedak, vitamin, dan suplemen khas. 
-                    Dengan pengalaman dan kepakaran dalam industri ini, kami berkomitmen untuk menyediakan produk dan perkhidmatan yang memenuhi standard tertinggi dan memastikan setiap pelanggan berpuas hati dengan pengalaman mereka bersama kami. 
-                    Di NANMB LEGACY, kami sentiasa berusaha untuk menjadikan penjagaan burung anda lebih mudah dan berkesan.
+                    NANMB LEGACY merupakan syarikat yang berpengalaman dalam pembiakbakaan burung murai batu secara komersial. 
+                    Kami memiliki lesen dan kelulusan PERHILITAN, termasuk lesen peniaga serta panel penandaan yang sah. 
+                    Selain itu, kami turut menawarkan produk penjagaan burung seperti dedak, vitamin dan suplemen bagi memastikan kesihatan serta prestasi burung sentiasa terjaga.
                 </p>
             </div>
         </section>
@@ -525,29 +585,45 @@
             <div class="grid-container">
 
                 <div class="card">
-                    <img src="dedak2kg.png" alt="Dedak NanMb">
-                    <h1>Dedak Penggalak Fighter 2KG Balang NANMB</h1>
+                    <img src="dedak-F-B-Premium.jpg" alt="Dedak NanMb">
+                    <h1>Dedak Fighter & Dedak Buah Premium</h1>
                     <div class="button-group">
-                        <a href="https://my.shp.ee/jqR5pBfL" target="_blank" class="store-btn">
+                        <a href="https://my.shp.ee/wZXJfJAv" target="_blank" class="store-btn">
                             <img src="shopee.png" alt="Shopee" />
                         </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jPn1HRbR-G1GwD/" target="_blank" class="store-btn">
+                        <a href="https://vt.tiktok.com/ZS9PSEQCndbSM-uEQTx/" target="_blank" class="store-btn">
                             <img src="tt2.png" alt="TikTok" />
                         </a>
                         <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
                             <img src="whatsapp-removebg.png" alt="WhatsApp" />
                         </a>
                     </div>
-                </div>              
+                </div>   
+                
+                <div class="card">
+                    <img src="spBest.jpg" alt="NANMB SuperBest">
+                    <h1>Super Best Mandian 2in1 NANMB</h1>
+                    <div class="button-group">
+                        <a href="https://my.shp.ee/kLRKcySF" target="_blank" class="store-btn">
+                            <img src="shopee.png" alt="Shopee" />
+                        </a>
+                        <a href="https://vt.tiktok.com/ZS9PSogto6nST-h6PGL/" target="_blank" class="store-btn">
+                            <img src="tt2.png" alt="TikTok" />
+                        </a>
+                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
+                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
+                        </a>
+                    </div>
+                </div>
 
                 <div class="card">
-                    <img src="dedak1kgBlg.png" alt="Dedak NanMb">
-                    <h1>Dedak Penggalak Fighter 1KG Balang NANMB</h1>
+                    <img src="vitAll.jpg" alt="Vitamin NanMb">
+                    <h1>NANMB Vitamin Fighter, Bon, BComplex, Omega, Kalsium</h1>
                     <div class="button-group">
                         <a href="https://my.shp.ee/6QvtSt4n" target="_blank" class="store-btn">
                             <img src="shopee.png" alt="Shopee" />
                         </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jPn1HRbR-G1GwD/" target="_blank" class="store-btn">
+                        <a href="https://vt.tiktok.com/ZS9PSoLXDSMeq-P1OPK/" target="_blank" class="store-btn">
                             <img src="tt2.png" alt="TikTok" />
                         </a>
                         <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
@@ -557,13 +633,13 @@
                 </div>
 
                 <div class="card">
-                    <img src="dedak500g.png" alt="Dedak NanMb">
-                    <h1>Dedak Penggalak Fighter 500g Balang NANMB</h1>
+                    <img src="dedak-ekonomi.jpg" alt="Dedak NanMb">
+                    <h1>NANMB Dedak Ekonomi & Premium Fighter dan Buah</h1>
                     <div class="button-group">
                         <a href="https://my.shp.ee/5QME7yof" target="_blank" class="store-btn">
                             <img src="shopee.png" alt="Shopee" />
                         </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jPn1HRbR-G1GwD/" target="_blank" class="store-btn">
+                        <a href="https://vt.tiktok.com/ZS9PA1QPCpepK-ITOph/" target="_blank" class="store-btn">
                             <img src="tt2.png" alt="TikTok" />
                         </a>
                         <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
@@ -573,14 +649,13 @@
                 </div>
 
                 <div class="card">
-                    <img src="dedak1kg.png" alt="Dedak NanMb">
-                    <h1>Dedak Penggalak Fighter 1KG NANMB</h1>
-                    <p class="price">RM26.00</p>
+                    <img src="super-kombo.jpg" alt="set super kombo">
+                    <h1>Set Super Kombo NANMB</h1>
                     <div class="button-group">
-                        <a href="https://my.shp.ee/DHb5zsns" target="_blank" class="store-btn">
+                        <a href="https://my.shp.ee/ikdjz7Jc" target="_blank" class="store-btn">
                             <img src="shopee.png" alt="Shopee" />
                         </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jPn1HRbR-G1GwD/" target="_blank" class="store-btn">
+                        <a href="https://vt.tiktok.com/ZS9PA8cXgmSSa-41kuc/" target="_blank" class="store-btn">
                             <img src="tt2.png" alt="TikTok" />
                         </a>
                         <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
@@ -590,13 +665,13 @@
                 </div>
 
                 <div class="card">
-                    <img src="dedak400g.png" alt="Dedak NanMb">
-                    <h1>Dedak Penggalak Fighter 400g NANMB</h1>
+                    <img src="set-lengkap.jpg" alt="lengkap">
+                    <h1>NANMB Set Lengkap Fighter dan Buah</h1>
                     <div class="button-group">
-                        <a href="https://my.shp.ee/qiL4vdGN" target="_blank" class="store-btn">
+                        <a href="https://my.shp.ee/8mkFuV5n" target="_blank" class="store-btn">
                             <img src="shopee.png" alt="Shopee" />
                         </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jPn1HRbR-G1GwD/" target="_blank" class="store-btn">
+                        <a href="https://vt.tiktok.com/ZS9PALj7torMG-iXx6l/" target="_blank" class="store-btn">
                             <img src="tt2.png" alt="TikTok" />
                         </a>
                         <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
@@ -606,13 +681,13 @@
                 </div>
 
                 <div class="card">
-                    <img src="dedak250g.png" alt="Dedak NanMb">
-                    <h1>Dedak Penggalak Fighter 250g NANMB</h1>
+                    <img src="belijimat.jpg" alt="Beli dan Jimat">
+                    <h1>Set Beli & Jimat NANMB LEGACY</h1>
                     <div class="button-group">
-                        <a href="https://my.shp.ee/Xnij5veS" target="_blank" class="store-btn">
+                        <a href="https://my.shp.ee/emsepnYH" target="_blank" class="store-btn">
                             <img src="shopee.png" alt="Shopee" />
                         </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jPn1HRbR-G1GwD/" target="_blank" class="store-btn">
+                        <a href="https://vt.tiktok.com/ZS9PA8LV8ro7g-vfMHm/" target="_blank" class="store-btn">
                             <img src="tt2.png" alt="TikTok" />
                         </a>
                         <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
@@ -623,12 +698,12 @@
 
                 <div class="card">
                     <img src="dedakBaby.png" alt="Dedak NanMb">
-                    <h1>Dedak Penggalak Fighter Baby 300g NANMB</h1>
+                    <h1>Dedak Penggalak Fighter Baby 300g NANMB (Dedak Halus)</h1>
                     <div class="button-group">
-                        <a href="https://my.shp.ee/A3xEGvAn" target="_blank" class="store-btn">
+                        <a href="https://my.shp.ee/WUeEQaPT" target="_blank" class="store-btn">
                             <img src="shopee.png" alt="Shopee" />
                         </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jPn1HRbR-G1GwD/" target="_blank" class="store-btn">
+                        <a href="https://vt.tiktok.com/ZS9PA1KcbmMfG-Y8TQH/" target="_blank" class="store-btn">
                             <img src="tt2.png" alt="TikTok" />
                         </a>
                         <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
@@ -637,135 +712,7 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <img src="buah2kg.png" alt="Dedak NanMb">
-                    <h1>Dedak Buah NANMB Balang 2KG</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/UKU5u8CE" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jHXUX5k2-MRhuL/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="buah1kg.png" alt="Dedak NanMb">
-                    <h1>Dedak Buah NANMB Balang 1KG</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/gjwJhVJU" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jHXUX5k2-MRhuL/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="buah300g.png" alt="Dedak NanMb">
-                    <h1>Dedak Buah NANMB 300g</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/k7yWFHmA" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jHXUX5k2-MRhuL/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="buahFull500g.png" alt="Dedak NanMb">
-                    <h1>Dedak Full Buah NANMB Balang 500g</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/X9SZun8Z" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jHXUX5k2-MRhuL/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="buahFull300g.png" alt="Dedak NanMb">
-                    <h1>Dedak Full Buah NANMB Balang 300g</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/Z5Q6gwX5" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jHXUX5k2-MRhuL/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="buahFull200g.png" alt="Dedak NanMb">
-                    <h1>Dedak Full Buah NANMB 200g</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/8rAMavHT" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jHXUX5k2-MRhuL/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="vitFighter.png" alt="vut hijau NanMb">
-                    <h1>Vitamin Fighter NANMB 50ml</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/bxscdqry" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jqyfnvHU-wAZxf/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="vitBon.png" alt="Vitamin Bon NANMB">
-                    <h1>Vitamin Bon Fighter NANMB 50ml</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/26h7gaPC" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jbqv3hw9-mSS9J/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
+                <!-- <div class="card">
                     <img src="vitBcomplex.png" alt="Vitamin B-Complex NANMB">
                     <h1>Vitamin B-Complex NANMB 50ml</h1>
                     <div class="button-group">
@@ -779,213 +726,7 @@
                             <img src="whatsapp-removebg.png" alt="WhatsApp" />
                         </a>
                     </div>
-                </div>
-
-                <div class="card">
-                    <img src="sb1l.png" alt="NANMB SuperBest">
-                    <h1>Super Best Mandian 2in1 NANMB 1Liter</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/vd7K8XN9" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jnf1f1so-capjr/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="sb300ml.png" alt="NANMB SuperBest">
-                    <h1>Super Best Mandian 2in1 NANMB 300ml</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/DxhYhvHd" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jnf1f1so-capjr/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="kalsium.png" alt="NANMB Kalsium">
-                    <h1>Super High Kalsium NANMB</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/VSDR8FeR" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jcTkvnnS-RGbFK/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="omega.png" alt="NANMB omega">
-                    <h1>NANMB Omega+</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/L9ve1Z2t" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jWXeMoLq-WrNJz/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="belidanjimat.png" alt="beli dan jimat">
-                    <h1>NANMB Legacy Set Beli & Jimat</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/WHuaRWn6" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jxNdQRBv-jZs9p/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="setVitamin3in1.png" alt="Set Vitamin 3in1">
-                    <h1>NANMB Kicau Fighter Kombo 3in1 50ml</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/3dJqVRtB" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R16LYTyFks-yf8mV/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="set7-1.png" alt="Vitamin B-Complex NANMB">
-                    <h1>NANMB Set Lengkap 7in1</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/3x8K1Ucg" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1jEnasBPe-QFqZX/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="set6-1.png" alt="Vitamin B-Complex NANMB">
-                    <h1>NANMB Set Kombo Kicau Fighter 6in1</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/om9nZfU2" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R1joQ65mxQ-tl0Sa/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="setTop.png" alt="Vitamin B-Complex NANMB">
-                    <h1>NANMB Set Top 3in1</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/H18U6tR1" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R16Fq8hUar-OuwKX/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="set3-1.png" alt="Vitamin B-Complex NANMB">
-                    <h1>NANMB Set 3in1 Penggalak</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/P6dgHGSU" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R16YSVLyjr-KaI4B/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="setBuahGalak.png" alt="Vitamin B-Complex NANMB">
-                    <h1>NANMB Set Galak 3in1</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/uw3vQFNF" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R16Bn3PYw9-rs8NK/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="setBuahBComplex.png" alt="Vitamin B-Complex NANMB">
-                    <h1>NANMB Dedak Buah + B-Complex</h1>
-                    <div class="button-group">
-                        <a href="https://my.shp.ee/EBkPPfuX" target="_blank" class="store-btn">
-                            <img src="shopee.png" alt="Shopee" />
-                        </a>
-                        <a href="https://vt.tiktok.com/ZS9R16MeRhvHD-wDafT/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="baju.jpg" alt="Dedak NanMb">
-                    <h1>NANMB Legacy Baju Kicau Fighter</h1>
-                    <div class="button-group">
-                        <a href="https://vt.tiktok.com/ZS9R1jKSoV8DD-SvLHj/" target="_blank" class="store-btn">
-                            <img src="tt2.png" alt="TikTok" />
-                        </a>
-                        <a href="https://wa.me/60105525354" target="_blank" class="store-btn">
-                            <img src="whatsapp-removebg.png" alt="WhatsApp" />
-                        </a>
-                    </div>
-                </div>
-
+                </div> -->
             </div>
         </section>
         <!-- Product Section End -->
@@ -1005,7 +746,7 @@
                 <img src="mb3.jpg">
             </div>
 
-            <!-- <div class="vid-gallery">
+            <div class="vid-gallery">
                 <video width="40%" height="60%" controls>
                     <source src="vid1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -1022,7 +763,7 @@
                     <source src="vid4.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-            </div> -->
+            </div>
 
         </section>
         <!-- Galeri Section End-->
@@ -1070,6 +811,7 @@
 
         <section class="footer-section">
             &copy2024 NANMB LEGACY | nadadnan
-        </section>     
+        </section>
+        </main>     
     </body>
 </html>
